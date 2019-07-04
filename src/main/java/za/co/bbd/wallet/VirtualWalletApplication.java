@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class VirtualWalletApplication {
 
 	public static void main(String[] args) {
-		Logger logger = LoggerFactory.getLogger(VirtualWalletApplication.class);
+		Logger logger = LoggerFactory.getLogger("DB");
 		
 		logger.error("Hello");
 		SpringApplication.run(VirtualWalletApplication.class, args);
