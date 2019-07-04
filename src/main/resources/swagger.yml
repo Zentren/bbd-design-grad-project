@@ -646,62 +646,75 @@ definitions:
   User:
     type: "object"
     properties:
-      id:
+      userId:
         type: "integer"
         format: "int64"
-      petId:
-        type: "integer"
-        format: "int64"
-      quantity:
-        type: "integer"
-        format: "int32"
-      shipDate:
+      firstName:
         type: "string"
-        format: "date-time"
-      status:
+      surname:
         type: "string"
-        description: "Order Status"
-        enum:
-        - "placed"
-        - "approved"
-        - "delivered"
-      complete:
-        type: "boolean"
-        default: false
+      email:
+        type: "string"
+        format: "email"
+      phoneNumber:
+        type: "string"
+      password:
+        type: "string"
+      accounts:
+        type: "array"
+        format: "number"
     xml:
       name: "User"
   Transaction:
     type: "object"
     properties:
-      id:
-        type: "integer"
-        format: "int64"
-      name:
+      transactionId:
         type: "string"
+      fromAccount:
+        type: "object"
+        properties:
+          accountNumber:
+            type: "string"
+          openingBalance:
+            type: "integer"
+            format: "int64"
+      toAccount:
+        type: "object"
+        properties:
+          accountNumber:
+            type: "string"
+          openingBalance:
+            type: "integer"
+            format: "int64"
+      dateInitiation:
+        type: "string"
+        format: "date-time"
+      dateSettlement:
+        type: "string"
+        format: "date-time"
+      settled:
+        type: "boolean"
+        default: false
     xml:
       name: "Transaction"
   Account:
     type: "object"
     properties:
-      id:
+      accountNumber:
         type: "integer"
         format: "int64"
-      username:
-        type: "string"
-      firstName:
-        type: "string"
-      lastName:
-        type: "string"
-      email:
-        type: "string"
-      password:
-        type: "string"
-      phone:
-        type: "string"
-      userStatus:
+      balance:
         type: "integer"
-        format: "int32"
-        description: "User Status"
+        format: "int64"
+      availableBalance:
+        type: "integer"
+        format: "int64"
+      closed:
+        type: "boolean"
+        default: false
+      transactions:
+        type: "array"
+        format: "string"
     xml:
       name: "Account"
   ApiResponse:
